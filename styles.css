@@ -13,18 +13,18 @@
 }
 
 /* Modo Oscuro */
-@media (prefers-color-scheme: dark) {
-    :root {
-        /* Mantenemos el naranja brillante también para el modo oscuro */
-        --primary: #fb923c; 
-        --primary-dark: #f97316; 
-        --accent: #34d399;
-        --dark: #f8fafc; 
-        --light: #0f172a; 
-        --gray: #94a3b8;
-        --bg-card: #1e293b; 
-        --text-main: #f1f5f9; 
-        --border: #334155;
+/* OPTIMIZACIÓN EXTRA PARA EL LOGO EN MÓVILES */
+@media (max-width: 768px) {
+    /* Reducimos el tamaño del texto del logo para que no se rompa la barra */
+    header a, .nav-container a:first-child {
+        font-size: 1.1rem !important;
+        letter-spacing: -0.5px;
+    }
+
+    /* Opcional: Si prefieres ocultar el sufijo en celulares muy pequeños y dejar solo SISFAC, 
+       puedes usar un span con clase .sub-logo en tu HTML y ocultarlo así: */
+    .sub-logo {
+        display: none; 
     }
 }
 
@@ -131,5 +131,11 @@ footer {
         display: block;
         width: 100%;
         margin-bottom: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo .sub-logo {
+        display: none;
     }
 }

@@ -1,5 +1,4 @@
 :root {
-    /* Cambiamos el color primario y oscuro al tono naranja que elegiste */
     --primary: #f97316; 
     --primary-dark: #c2410c; 
     --accent: #10b981; 
@@ -12,28 +11,28 @@
     --transition: all 0.3s ease;
 }
 
-/* Modo Oscuro */
-/* OPTIMIZACIÓN EXTRA PARA EL LOGO EN MÓVILES */
-@media (max-width: 768px) {
-    /* Reducimos el tamaño del texto del logo para que no se rompa la barra */
-    header a, .nav-container a:first-child {
-        font-size: 1.1rem !important;
-        letter-spacing: -0.5px;
-    }
-
-    /* Opcional: Si prefieres ocultar el sufijo en celulares muy pequeños y dejar solo SISFAC, 
-       puedes usar un span con clase .sub-logo en tu HTML y ocultarlo así: */
-    .sub-logo {
-        display: none; 
+/* Modo Oscuro Automático */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary: #fb923c; 
+        --primary-dark: #f97316; 
+        --accent: #34d399;
+        --dark: #f8fafc; 
+        --light: #0f172a; 
+        --gray: #94a3b8;
+        --bg-card: #1e293b; 
+        --text-main: #f1f5f9; 
+        --border: #334155;
     }
 }
-
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 body { background-color: var(--light); color: var(--text-main); line-height: 1.6; transition: var(--transition); }
 
 header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-@media (prefers-color-scheme: dark) { header { background: rgba(15, 23, 42, 0.9); } }
+@media (prefers-color-scheme: dark) { 
+    header { background: rgba(15, 23, 42, 0.9); } 
+}
 
 .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
 .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
@@ -42,44 +41,44 @@ header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); pos
 .nav-links a:hover { color: var(--primary); }
 
 header a, .nav-container a:first-child {
-    color: #f97316 !important; /* El color naranja vibrante que combina con tu imagen */
+    color: #f97316 !important;
 }
 
-
-/* SECCIÓN HERO CON LA NUEVA IMAGEN Y CAPA OSCURA DE CONTRASTE */
-/* SECCIÓN HERO LIMPIA Y SEGURA PARA LAS DEMÁS SECCIONES */
+/* SECCIÓN HERO */
 .hero { 
     position: relative;
     padding: 10rem 2rem 8rem; 
-    
-    /* El gradiente oscuro para mantener la legibilidad de tus letras */
     background: linear-gradient(rgba(15, 23, 42, 0.50), rgba(15, 23, 42, 0.50)), url('fondo.jpg'); 
-    
-    /* FUERZA BRUTA PARA QUE SE VEA COMPLETA: 
-       El primer valor ajusta el ancho al 100%, y el segundo ajusta el alto al 100%. 
-       Esto evita cualquier recorte automático del navegador. */
     background-size: 100% 82%; 
-    
     background-position: center center; 
     background-repeat: no-repeat;
-    
     text-align: center; 
     color: #ffffff;
-    
     min-height: 75vh; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-/* Contenedor interno del texto para que mantenga el orden */
-.hero-container {
-    max-width: 900px;
-    margin: 0 auto;
-    z-index: 2; /* Asegura que el texto esté siempre por encima de la imagen y el gradiente */
+
+.hero-container { 
+    max-width: 900px; 
+    margin: 0 auto; 
+    z-index: 2; 
 }
-.hero-container { max-width: 900px; margin: 0 auto; }
-.badge { display: inline-block; background-color: #e3bf8f; color: #000000; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1.5rem; text-transform: uppercase; }
+
+.badge { 
+    display: inline-block; 
+    background-color: #e3bf8f; 
+    color: #000000; 
+    padding: 0.4rem 1rem; 
+    border-radius: 50px; 
+    font-size: 0.85rem; 
+    font-weight: 700; 
+    margin-bottom: 1.5rem; 
+    text-transform: uppercase; 
+}
+
 .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem; color: #ffffff; }
 .hero h1 span { color: var(--primary); }
 
@@ -105,37 +104,35 @@ footer {
 .modal-overlay { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center; }
 .modal-card { background: var(--bg-card); padding: 2.5rem; border-radius: 16px; max-width: 450px; width: 90%; }
 
-/* OPTIMIZACIÓN PARA MÓVILES (Celulares y pantallas pequeñas) */
+/* =========================================
+   OPTIMIZACIÓN UNIFICADA PARA MÓVILES
+   ========================================= */
 @media (max-width: 768px) {
     .hero {
-        /* Reducimos el padding para que no ocupe toda la pantalla en alto */
         padding: 8rem 1.5rem 5rem;
-        
-        /* En celulares, cambiamos a cover y centramos para que la interfaz se adapte mejor */
         background-size: cover;
         background-position: center center;
-        
-        /* Damos un alto flexible para que el contenido mande */
         min-height: auto;
     }
 
-    /* Ajustamos el tamaño del título principal para que no se salga de la pantalla del celular */
     .hero h1 {
         font-size: 2rem; 
         line-height: 1.2;
     }
 
-    /* Hacemos que los botones se apilen verticalmente si faltan espacios laterales */
     .hero-container .btn-primary, 
     .hero-container .btn-outline {
         display: block;
         width: 100%;
         margin-bottom: 0.8rem;
     }
-}
 
-@media (max-width: 768px) {
+    header a, .nav-container a:first-child {
+        font-size: 1.1rem !important;
+        letter-spacing: -0.5px;
+    }
+
     .logo .sub-logo {
-        display: none;
+        display: none; 
     }
 }

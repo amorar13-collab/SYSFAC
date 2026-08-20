@@ -1,0 +1,364 @@
+/* ==========================================
+   1. VARIABLES Y CONFIGURACIÓN DE TEMA
+   ================================---------- */
+:root {
+    --primary: #0284c7; 
+    --primary-dark: #0369a1; 
+    --accent: #10b981; 
+    --dark: #0f172a; 
+    --light: #f8fafc; 
+    --gray: #64748b; 
+    --bg-card: #ffffff; 
+    --text-main: #0f172a; 
+    --border: #e2e8f0;
+    --transition: all 0.3s ease;
+}
+
+/* Modo Oscuro */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary: #38bdf8; 
+        --primary-dark: #7dd3fc; 
+        --accent: #34d399;
+        --dark: #f8fafc; 
+        --light: #0f172a; 
+        --gray: #94a3b8;
+        --bg-card: #1e293b; 
+        --text-main: #f1f5f9; 
+        --border: #334155;
+    }
+}
+
+/* ==========================================
+   2. ESTILOS GLOBALES Y RESET
+   ================================---------- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Inter', sans-serif; 
+}
+
+body { 
+    background-color: var(--light); 
+    color: var(--text-main); 
+    line-height: 1.6; 
+    transition: var(--transition); 
+}
+
+/* ==========================================
+   3. NAVEGACIÓN Y HEADER
+   ================================---------- */
+header { 
+    background: rgba(255, 255, 255, 0.95); 
+    backdrop-filter: blur(10px); 
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1000; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+}
+
+@media (prefers-color-scheme: dark) { 
+    header { 
+        background: rgba(15, 23, 42, 0.9); 
+    } 
+}
+
+.nav-container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 1rem 2rem; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.logo { 
+    font-size: 1.5rem; 
+    font-weight: 800; 
+    color: var(--primary); 
+    text-decoration: none; 
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem; 
+}
+
+.nav-links { 
+    display: flex; 
+    gap: 2rem; 
+    list-style: none; 
+    align-items: center; 
+}
+
+.nav-links a { 
+    text-decoration: none; 
+    color: var(--gray); 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: var(--transition); 
+}
+
+.nav-links a:hover { 
+    color: var(--primary); 
+}
+
+/* ==========================================
+   4. SECCIÓN HERO (CON TU FONDO SELECCIONADO)
+   ================================---------- */
+.hero { 
+    padding: 10rem 2rem 6rem; 
+    background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.92)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center; 
+}
+
+@media (prefers-color-scheme: dark) { 
+    .hero { 
+        background: linear-gradient(rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.96)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+    } 
+}
+
+.hero-container { 
+    max-width: 900px; 
+    margin: 0 auto; 
+}
+
+.badge { 
+    display: inline-block; 
+    background-color: rgba(56, 189, 248, 0.2); 
+    color: #38bdf8; 
+    border: 1px solid rgba(56, 189, 248, 0.4); 
+    padding: 0.4rem 1rem; 
+    border-radius: 50px; 
+    font-size: 0.85rem; 
+    font-weight: 700; 
+    margin-bottom: 1.5rem; 
+    text-transform: uppercase; 
+}
+
+.hero h1 { 
+    font-size: 3rem; 
+    font-weight: 800; 
+    margin-bottom: 1.5rem; 
+    color: #ffffff; 
+}
+
+.hero h1 span { 
+    color: var(--primary); 
+}
+
+/* ==========================================
+   5. BOTONES GLOBALES
+   ================================---------- */
+.btn-primary { 
+    background-color: var(--primary); 
+    color: white; 
+    padding: 0.8rem 1.8rem; 
+    border-radius: 8px; 
+    border: none; 
+    cursor: pointer; 
+    font-weight: 600; 
+}
+
+.btn-outline { 
+    background-color: transparent; 
+    color: #ffffff; 
+    border: 2px solid rgba(255, 255, 255, 0.5); 
+    padding: 0.8rem 1.8rem; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: 600; 
+    transition: var(--transition);
+}
+
+.btn-outline:hover { 
+    border-color: #ffffff; 
+}
+
+/* ==========================================
+   6. SECCIÓN DE CARACTERÍSTICAS
+   ================================---------- */
+.features { 
+    padding: 6rem 2rem; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.features-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 2rem; 
+}
+
+.feature-card { 
+    background: var(--bg-card); 
+    padding: 2.5rem; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+    border: 1px solid var(--border); 
+}
+
+.feature-icon { 
+    font-size: 2.5rem; 
+    color: var(--primary); 
+    margin-bottom: 1.2rem; 
+}
+
+/* ==========================================
+   7. SECCIÓN SIMULADOR Y FORMULARIOS
+   ================================---------- */
+.simulator { 
+    background-color: var(--bg-card); 
+    padding: 5rem 2rem; 
+    border-top: 1px solid var(--border); 
+    border-bottom: 1px solid var(--border); 
+}
+
+.simulator-container { 
+    max-width: 700px; 
+    margin: 0 auto; 
+    background: var(--light); 
+    padding: 3rem; 
+    border-radius: 16px; 
+    border: 1px solid var(--border); 
+}
+
+.form-group { 
+    margin-bottom: 1.5rem; 
+}
+
+.form-group select { 
+    width: 100%; 
+    padding: 0.8rem; 
+    border: 1px solid var(--border); 
+    border-radius: 8px; 
+    background: var(--bg-card); 
+    color: var(--text-main); 
+}
+
+.result-price { 
+    font-size: 2rem; 
+    font-weight: 800; 
+    color: var(--primary); 
+    margin-top: 1rem; 
+}
+
+/* ==========================================
+   8. MODAL FLOTANTE
+   ================================---------- */
+.modal-overlay { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.6); 
+    z-index: 2000; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.modal-card { 
+    background: var(--bg-card); 
+    padding: 2.5rem; 
+    border-radius: 16px; 
+    max-width: 450px; 
+    width: 90%; 
+}
+
+/* ==========================================
+   9. FOOTER
+   ================================---------- */
+footer { 
+    background-color: var(--bg-card); 
+    color: var(--text-main); 
+    padding: 3rem 2rem; 
+    text-align: center; 
+    border-top: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.contact-footer { 
+    color: var(--accent); 
+    font-size: 1.2rem; 
+    font-weight: 700; 
+    margin-top: 0.5rem; 
+}
+
+/* ==========================================
+   10. DISEÑO RESPONSIVO (MÓVILES Y TABLETS)
+   ================================---------- */
+
+/* Pantallas medianas y tablets (inferior a 992px) */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .nav-container {
+        padding: 1rem;
+    }
+}
+
+/* Teléfonos móviles (inferior a 768px) */
+@media (max-width: 768px) {
+    /* Navegación y Header */
+    .nav-links {
+        display: none; /* Oculta los links de escritorio (puedes activar un menú hamburguesa después si lo deseas) */
+    }
+
+    .nav-container {
+        justify-content: center;
+    }
+
+    /* Sección Hero */
+    .hero {
+        padding: 8rem 1.5rem 4rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    /* Botones apilados en móvil para mayor comodidad táctil */
+    .hero-container div {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .btn-primary, .btn-outline {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Características y Simulador */
+    .features {
+        padding: 4rem 1rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr; /* Una sola columna por tarjeta */
+    }
+
+    .simulator {
+        padding: 3rem 1rem;
+    }
+
+    .simulator-container {
+        padding: 1.5rem;
+    }
+
+    /* Modales */
+    .modal-card {
+        padding: 1.5rem;
+        width: 95%;
+    }
+}

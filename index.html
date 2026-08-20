@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYSFAC - Sistema de Facturación Electrónica en Ecuador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo"><i class="fa-solid fa-file-invoice-dollar"></i> SYSFAC</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#caracteristicas">Características</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-container">
+            <span class="badge">Quito, Pichincha - Cobertura Nacional</span>
+            <h1>Facturación Electrónica Rápida y Segura para todo el <span>Ecuador</span></h1>
+            <div style="display:flex; justify-content:center; gap:1rem;">
+                <button onclick="cotizarWhatsApp()" class="btn-primary">Cotizar</button>
+                <button onclick="abrirWhatsApp()" class="btn-outline">Solicitar Demo Gratis</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="caracteristicas" class="features">
+        <h2 style="text-align:center; font-size: 2.2rem; margin-bottom: 3rem;">¿Por qué elegir SYSFAC?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Homologado</h3>
+                <p style="color: var(--gray); font-size: 0.95rem; margin-top: 0.5rem;">Cumple al 100% con todas las normativas del SRI sin complicaciones técnicas.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                <h3>Emisión Ultra Rápida</h3>
+                <p style="color: var(--gray); font-size: 0.95rem; margin-top: 0.5rem;">Genera y autoriza tus comprobantes electrónicos en segundos.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+                <h3>Soporte Técnico Local</h3>
+                <p style="color: var(--gray); font-size: 0.95rem; margin-top: 0.5rem;">Te acompañamos de forma directa y personalizada cuando más lo necesites.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="modalPlanes">
+        <div class="modal-card">
+            <h2>Planes y Precios</h2>
+            <p style="margin: 1rem 0 2rem;">Selecciona el plan que mejor se ajuste a tu volumen de facturación.</p>
+            <button onclick="cerrarModal()" class="btn-primary" style="width: 100%;">Entendido</button>
+        </div>
+    </div>
+
+    <footer>
+        <h3>SYSFAC Ecuador</h3>
+        <p class="contact-footer">WhatsApp: 0982648051</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
